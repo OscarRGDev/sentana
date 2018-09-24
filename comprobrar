@@ -1,0 +1,40 @@
+gs.grid_scores_ imprime el output que tiene el tutorial mas o menos!
+
+Seguir con la parte 2 del tutorial ()
+
+exactamente aquí:
+
+
+# load from file and predict using the best configs found in the CV step
+model_NB = joblib.load("twitter_sentiment.pkl" )
+
+# get predictions from best model above
+y_preds = model_NB.predict(X_test)                                              ### Hay que definir nuestro train y nuestro test!!
+print('accuracy score: ',accuracy_score(y_test, y_preds))
+print('\n')
+print('confusion matrix: \n',confusion_matrix(y_test,y_preds))
+print('\n')
+print(classification_report(y_test, y_preds))
+
+ => hasta aquí funciona todo!!! Es decir, tenemos un clasificador Multiclass. 
+
+#### To Fix:
+1. Preprocessing parece que no funciona. Ni el del tutorial! Adpatar código para que no tengamos StopWords/simbolos de puntuacion ni en inglés ni en español!
+    Si no lo hacemos nos quitará un montón de puntos ya que es algo básico que todo el mundo sabe que se ha de hacer!!!!
+    Para solucionar esto podemos crear un script que lea el XML y que de ahí genere un excel u otro XML pero esta vez eliminando lo que no queremos! 
+    Para eliminar datos del XML solo necesitamos una regular expression!
+    
+
+
+#### Idea para poder entregar el proyecto:
+
+Para que el proyecto no se vea muy pobre podemos crear tres clasificadores con X-Algoritmos (SVM,GaussianNB, MulinomialNB, RandomForest...):
+    1. El primero hace una clasificacion binaria (positivo o negativo) -> esto tiene que funcionar bien 100% (seguir Tutorail!)
+    2. El segundo "queremos" comprobar que tal funciona el clasificador con una clasificacion ternaria (positivo, negativo, neutro).
+    3. El tercero "queremos comprobar" que tal funciona el clasificador con una clasificacion ternaria (muy positivo, positivo, negativo, muy negativo, neutro).
+
+El punto tres lo considero opcional y no creo que sea de mucha ayuda. 
+
+
+Justificación del proyecto: se me olvidó lo que dijimos y no lo apuntamos!!!! :Seguir
+
